@@ -4,49 +4,49 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-      -name: get code
-      uses: actions/checkout@v4
-      with:
-        fetch-depth: 0
-      -name: install node js
-      uses: actions/setup-node@v4
-      with:
-        node-version: "18"
-      -name: install dependencies
-      run: npm ci
-      -name: lint code
-      run: npm lint
+      - name: get code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: install node js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18"
+      - name: install dependencies
+        run: npm ci
+      - name: lint code
+        run: npm lint
   test:
     needs: lint
     runs-on: ubuntu-latest
     steps:
-      -name: get code
-      uses: actions/checkout@v4
-      with:
-        fetch-depth: 0
-      -name: install node js
-      uses: actions/setup-node@v4
-      with:
-        node-version: "18"
-      -name: install dependencies
-      run: npm ci
-      -name: test code
-      run: npm test
+      - name: get code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: install node js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18"
+      - name: install dependencies
+        run: npm ci
+      - name: test code
+        run: npm test
   deploy:
     needs: test
     runs-on: ubuntu-latest
     steps:
-      -name: get code
-      uses: actions/checkout@v4
-      with:
-        fetch-depth: 0
-      -name: install node js
-      uses: actions/setup-node@v4
-      with:
-        node-version: "18"
-      -name: install depnedecies
-      run: npm ci
-      -name: build app
-      run: npm build
-      -name: deplyment
-      run: echo "deplyemnet done successfully"
+      - name: get code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: install node js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18"
+      - name: install depnedecies
+        run: npm ci
+      - name: build app
+        run: npm build
+      - name: deplyment
+        run: echo "deplyemnet done successfully"
